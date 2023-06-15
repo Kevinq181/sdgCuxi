@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/sdgCuxi/static/css/main.3fe0122f.css",
+    "main.js": "/sdgCuxi/static/js/main.f7016140.js",
+    "index.html": "/sdgCuxi/index.html",
+    "main.3fe0122f.css.map": "/sdgCuxi/static/css/main.3fe0122f.css.map",
+    "main.f7016140.js.map": "/sdgCuxi/static/js/main.f7016140.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3fe0122f.css",
+    "static/js/main.f7016140.js"
+  ]
+}
