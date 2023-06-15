@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/sdgCuxi/static/css/main.3fe0122f.css",
-    "main.js": "/sdgCuxi/static/js/main.11a01939.js",
+    "main.js": "/sdgCuxi/static/js/main.821d5646.js",
     "index.html": "/sdgCuxi/index.html",
     "main.3fe0122f.css.map": "/sdgCuxi/static/css/main.3fe0122f.css.map",
-    "main.11a01939.js.map": "/sdgCuxi/static/js/main.11a01939.js.map"
+    "main.821d5646.js.map": "/sdgCuxi/static/js/main.821d5646.js.map"
   },
   "entrypoints": [
     "static/css/main.3fe0122f.css",
-    "static/js/main.11a01939.js"
+    "static/js/main.821d5646.js"
   ]
 }
