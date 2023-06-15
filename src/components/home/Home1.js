@@ -1,0 +1,240 @@
+import * as React from "react";
+import Paper from "@mui/material/Paper";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TablePagination from "@mui/material/TablePagination";
+import TableRow from "@mui/material/TableRow";
+import "./Home1.css";
+
+const columns = [
+  { id: "id_int", label: "ID INT", minWidth: 50 },
+  { id: "codigo", label: "Codigo", minWidth: 50 },
+  { id: "sucursal", label: "Sucursal", minWidth: 350 },
+  { id: "nroFacturacion", label: "Nro. Facturación", minWidth: 100 },
+  { id: "fechaFacturacion", label: "Fecha de facturación", minWidth: 60 },
+  { id: "secSri", label: "Sec. SRI" },
+  { id: "nombreSri", label: "Nombre SRI", minWidth: 510 }
+];
+
+function createData(id_int, codigo, sucursal, nroFacturacion, fechaFacturacion, secSri, nombreSri) {
+  return { id_int, codigo, sucursal , nroFacturacion, fechaFacturacion, secSri, nombreSri};
+}
+
+const rows = [
+  createData(2,1.02,'CUXIBAMBA','001-100','01/01/2022',1,'FARMACIAS CUXIBAMBA-PRINCIPAL'),
+createData(3,1.03,'BAYER','002-100','01/01/2022',2,'FARMACIAS CUXIBAMBA-BAYER'),
+createData(4,1.04,'VIDA','003-100','01/01/2022',3,'FARMACIAS CUXIBAMBA-VIDA'),
+createData(5,1.05,'MEDICOS','004-100','01/01/2022',4,'FARMACIAS CUXIBAMBA-MEDICOS'),
+createData(6,1.06,'LOURDES','005-100','01/01/2022',5,'FARMACIAS CUXIBAMBA-LOURDES'),
+createData(9,1.07,'BOLIVAR','008-100','01/01/2022',8,'FARMACIA CUXBAMBA - BOLIVAR'),
+createData(10,1.08,'JUAN JOSE PENA','007-100','01/01/2022',7,'FARMACIA CUXIBAMBA - JJ PEÑA'),
+createData(11,1.09,'JOSE FELIX','006-100','01/01/2022',6,'FARMACIA CUXIBAMBA - JOSE FELIX'),
+createData(12,1.10,'CATAMAYO1','009-100','01/01/2022',9,'FARMACIAS CUXIBAMBA "CATAMAYO"'),
+createData(13,1.11,'MAYORISTA','011-100','01/01/2022',11,'FARMACIAS CUXIBAMBA MAYORISTA'),
+createData(14,1.12,'CATACOCHA','010-100','01/01/2022',10,'FARMACIAS CUXIBAMBA "CATACOCHA"'),
+createData(15,1.13,'SINDICATO','013-100','01/01/2022',13,'FARMACIA CUXIBAMBA SINDICATO DE CHOFERES - LOJA'),
+createData(16,1.14,'ZAMORA','012-100','01/01/2022',12,'FARMACIAS CUXIBAMBA ZAMORA'),
+createData(17,1.15,'ORTOPEDIA','014-100','01/01/2022',14,'FARMACIAS & ORTOPEDIA CUXIBAMBA'),
+createData(18,1.16,'YANTZAZA','015-100','01/01/2022',15,'FARMACIA CUXIBAMBA YANTZAZA'),
+createData(19,1.17,'AMBATO','016-100','01/01/2022',16,'FARMACIA CUXIBAMBA AMBATO'),
+createData(20,1.18,'OLMEDO-ABENDANO','017-100','01/01/2022',17,'FARMACIAS CUXIBAMBA OLMEDO'),
+createData(21,1.19,'DERMATOLOGICA','019-100','01/01/2022',19,'FARMACIA DERMATOLOGICA CUXIBAMBA'),
+createData(22,1.20,'LAURO GUERRERO-EMERGENCIA','018-100','01/01/2022',18,'FARMACIAS CUXIBAMBA L. GUERRERO'),
+createData(23,1.21,'18 DE NOVIEMBRE','020-100','01/01/2022',20,'FARMACIAS CUXIBAMBA 18 DE NOVIEMBRE'),
+createData(24,1.22,'SAN SEBASTIAN','022-100','01/01/2022',22,'FARMACIA CUXIBAMBA SAN SEBASTIAN'),
+createData(25,1.23,'LEOPOLDO PALACIOS-UTPL','023-100','01/01/2022',23,'FARMACIAS CUXIBAMBA LEOPOLDO PALACIOS'),
+createData(26,1.24,'HUACHI CHICO','021-100','01/01/2022',21,'FARMACIA CUXIBAMBA HUACHI'),
+createData(27,1.25,'MOGROVEJO','024-100','01/01/2022',24,'FARMACIAS CUXIBAMBA MOGROVEJO'),
+createData(28,1.26,'PASAJE LA FEUE-VILCABAMBA','025-100','01/01/2022',25,'FARMACIAS CUXIBAMBA PASAJE LA FEUE'),
+createData(29,1.27,'EL VALLE','027-100','01/01/2022',27,'FARMACIAS CUXIBAMBA EL VALLE'),
+createData(30,1.28,'FICOA','026-100','01/01/2022',26,'FARMACIAS CUXIBAMBA FICOA'),
+createData(31,1.29,'LA CONDAMINE-RIOBAMBA','028-100','01/01/2022',28,'FARMACIAS CUXIBAMBA LA CONDAMINE'),
+createData(32,1.30,'GUARANDA','031-100','01/01/2022',31,'FARMACIAS CUXIBAMBA GUARANDA'),
+createData(33,1.31,'BALSAS','029-100','01/01/2022',29,'FARMACIAS CUXIBAMBA BALSAS'),
+createData(34,1.32,'PIÑAS EL ORO','030-100','01/01/2022',30,'FARMACIAS CUXIBAMBA PIÑAS'),
+createData(37,1.34,'LATACUNGA EL SALTO','035-100','01/01/2022',35,'FARMACIAS CUXIBAMBA EL SALTO'),
+createData(38,1.35,'ZAPOTILLO','040-100','01/01/2022',40,'FARMACIAS CUXIBAMBA ZAPOTILLO'),
+createData(39,1.36,'CARIAMANGA','041-100','01/01/2022',41,'FARMACIAS CUXIBAMBA CARIAMANGA'),
+createData(40,1.37,'MACARA1','039-100','01/01/2022',39,'FARMACIAS CUXIBAMBA MACARA'),
+createData(41,1.38,'ROCAFUERTE','038-100','01/01/2022',38,'FARMACIAS CUXIBAMBA ROCAFUERTE'),
+createData(42,1.39,'SAN AGUSTIN-LATACUNGA CLINICA','036-100','01/01/2022',36,'FARMACIAS CUXIBAMBA SAN AGUSTIN'),
+createData(43,1.40,'ALAMOR-REAL ALAMOR','034-100','01/01/2022',34,'FARMACIAS CUXIBAMBA ALAMOR'),
+createData(44,1.41,'TERMINAL','037-100','01/01/2022',37,'FARMACIAS CUXIBAMBA TERMINAL'),
+createData(45,1.42,'ZARUMA','042-100','01/01/2022',42,'FARMACIAS CUXIBAMBA ZARUMA'),
+createData(46,1.43,'AMBATO CATEDRAL','044-100','01/01/2022',44,'FARMACIAS CUXIBAMBA AMBATO CATEDRAL'),
+createData(47,1.44,'PALANDA','045-100','01/01/2022',45,'FARMACIAS CUXIBAMBA PALANDA'),
+createData(48,1.45,'ZUMBA','048-100','01/01/2022',48,'FARMACIAS CUXIBAMBA ZUMBA'),
+createData(50,1.46,'AMALUZA','046-100','01/01/2022',46,'FARMACIAS CUXIBAMBA AMALUZA'),
+createData(51,1.47,'GONZANAMA','047-100','01/01/2022',47,'FARMACIAS CUXIBAMBA GONZANAMA'),
+createData(52,1.48,'CELICA','049-100','01/01/2022',49,'FARMACIAS CUXIBAMBA CELICA'),
+createData(53,1.49,'10 DE AGOSTO','050-100','01/01/2022',50,'FARMACIAS CUXIBAMBA 10 DE AGOSTO'),
+createData(54,1.50,'LALAMA AMBATO','052-100','01/01/2022',52,'FARMACIAS CUXIBAMBA AV. LOS CHASQUIS-AMBATO'),
+createData(55,1.51,'LAS PITAS','043-100','01/01/2022',53,'FARMACIAS CUXIBAMBA LAS PITAS'),
+createData(56,1.52,'MALACATOS','051-100','01/01/2022',51,'FARMACIAS CUXIBAMBA MALACATOS'),
+createData(57,1.53,'CATAMAYO2','055-100','01/01/2022',55,'FARMACIAS CUXIBAMBA CATAMAYO II'),
+createData(58,1.54,'PIO JARAMILLO','054-100','01/01/2022',54,'FARMACIAS CUXIBAMBA PIO JARAMILLO'),
+createData(59,1.55,'CUXIBAMBA CENTRAL','057-100','01/01/2022',57,'FARMACIAS CUXIBAMBA CENTRAL'),
+createData(60,1.56,'SAN FRANCISCO','056-100','01/01/2022',56,'FARMACIAS CUXIBAMBA SAN FRANCISCO'),
+createData(61,1.57,'SIMON BOLIVAR','058-100','01/01/2022',58,'FARMACIAS CUXIBAMBA SIMON BOLIVAR'),
+createData(62,1.58,'INDEPENDENCIA PIÑAS','032-100','01/01/2022',32,'FARMACIAS CUXIBAMBA INDEPENDENCIA'),
+createData(63,1.59,'TOMAS SEVILLA AMBATO','060-100','01/01/2022',60,'FARMACIAS CUXIBAMBA TOMAS SEVILLA-AMBATO'),
+createData(64,1.60,'GARCIA MORENO RIOBAMBA','059-100','01/01/2022',59,'FARMACIAS CUXIBAMBA GARCIA MORENO - RIOBAMBA'),
+createData(65,1.61,'IBARRA Y AV CUXIBAMBA LOJA','061-100','01/01/2022',61,'FARMACIAS CUXIBAMBA IBARRA Y AV. CUXIBAMBA-LOJA'),
+createData(68,1.63,'ARGELIA LOJA','062-100','01/01/2022',62,'FARMACIAS CUXIBAMBA ARGELIA - LOJA'),
+createData(69,1.64,'MACARA2','064-100','01/01/2022',64,'FARMACIAS CUXIBAMBA MACARA 2'),
+createData(70,1.62,'QUILANGA','063-100','01/01/2022',63,'FARMACIAS CUXIBAMBA QUILANGA'),
+createData(71,1.65,'PORTOVELO','065-100','01/01/2022',65,'FARMACIAS CUXIBAMBA PORTOVELO'),
+createData(72,1.67,'PINDAL','066-100','01/01/2022',66,'FARMACIAS CUXIBAMBA PINDAL'),
+createData(73,1.66,'COLEGIO MILITAR LOJA','067-100','01/01/2022',67,'FARMACIAS CUXIBAMBA COLEGIO MILITAR'),
+createData(74,1.68,'COLISEO CIUDAD DE LOJA','068-100','21/02/2022',68,'FARMACIAS CUXIBAMBA COLISEO CIUDAD DE LOJA'),
+createData(75,1.69,'SAN PEDRO DE LA BENDITA','069-100','03/03/2022',69,'FARMACIAS CUXIBAMBA SAN PEDRO DE LA BENDITA'),
+createData(76,1.70,'EL CISNE','070-100','11/03/2022',70,'FARMACIAS CUXIBAMBA EL CISNE'),
+createData(77,1.81,'CHAGUARPAMBA','080-110','14/04/2022',80,'FARMACIAS CUXIBAMBA CHAGUARPAMBA'),
+createData(78,1.71,'GUALAQUIZA','071-110','18/03/2022',71,'FARMACIAS CUXIBAMBA GUALAQUIZA'),
+createData(79,1.73,'EL PANGUI','072-110','28/03/2022',72,'FARMACIAS CUXIBAMBA EL PANGUI'),
+createData(80,1.87,'CENTINELA DEL CONDOR ZUMBI','088-110','20/05/2022',88,'FARMACIAS CUXIBAMBA CENTINELA DEL CONDOR'),
+createData(81,1.86,'LATACUNGA IESS','085-110','23/05/2022',85,'FARMACIAS CUXIBAMBA LATACUNGA IESS'),
+createData(82,1.75,'PUJILI OLMEDO','076-110','29/03/2022',76,'FARMACIAS CUXIBAMBA PUJILI'),
+createData(83,1.84,'SAQUISILI  9 DE OCTUBRE','086-110','05/05/2022',86,'FARMACIAS CUXIBAMBA SAQUISILI'),
+createData(84,1.78,'SALCEDO MERCADO CENTRAL 24-05','081-110','08/04/2022',81,'FARMACIAS CUXIBAMBA SALCEDO MERCADO CENTRAL 24 DE MAYO'),
+createData(85,1.72,'AMBATO MARTINEZ','075-110','19/03/2022',75,'FARMACIAS CUXIBAMBA AMBATO MARTINEZ'),
+createData(86,1.80,'AMBATO PICAIHUA','079-110','18/04/2022',79,'FARMACIAS CUXIBAMBA PICAIHUA'),
+createData(87,1.83,'PARQUE CENTRAL ROCAFUERTE PILL.','082-110','21/04/2022',82,'FARMACIAS CUXIBAMBA PILLARO PARQUE CENTRAL ROCAFUERTE'),
+createData(88,1.74,'AV SUCRE Y NUEVA YORK R.','074-100','29/03/2022',74,'FARMACIAS CUXIBAMBA RIOBAMBA SUCRE'),
+createData(89,1.77,'UNIDAD NACIONAL RIOBAMBA','073-110','31/03/2022',73,'FARMACIAS CUXIBAMBA RIOBAMBA UNIDAD NACIONAL'),
+createData(90,1.76,'BYPASS  RIOBAMBA','077-110','06/04/2022',77,'FARMACIAS CUXIBAMBA BYPASS-PANAMERICANA NORTE RIOBAMBA'),
+createData(91,1.79,'SALCEDO ROCAFUERTE','083-100','15/04/2022',83,'FARMACIAS CUXIBAMBA SALCEDO - ROCAFUERTE'),
+createData(92,1.89,'MARIANO EGUEZ   AMBATO','089-100','22/06/2022',89,'FARMACIAS CUXIBAMBA MARIANO EGUEZ AMBATO'),
+createData(93,1.85,'BOLIVAR Y CLAVIJO PILLARO','087-110','07/05/2022',87,'FARMACIAS CUXIBAMBA BOLIVAR Y CLAVIJO-PILLARO'),
+createData(94,1.88,'MERCADO FLORES URBINA PILLARO','084-110','05/06/2022',84,'FARMACIAS CUXIBAMBA MERCADO FLORES URBINA-PILLARO'),
+createData(95,1.82,'PELILEO','078-110','20/04/2022',78,'FARMACIAS CUXIBAMBA PELILEO'),
+createData(97,1.90,'SOLCA LOJA','090-100','13/07/2022',90,'FARMACIAS CUXIBAMBA COLEGIO DE ARQUITECTOS'),
+createData(98,1.91,'PARROQUIA VILCABAMBA','091-100','12/07/2022',91,'FARMACIAS CUXIBAMBA VILCABAMBA'),
+createData(99,1.92,'IGLESIA SAN JOSE LOJA','092-100','17/09/2022',92,'FARMACIAS CUXIBAMBA SAN JOSE'),
+createData(100,1.93,'SOZORANGA','094-110','02/10/2022',94,'FARMACIAS CUXIBAMBA SOZORANGA'),
+createData(101,1.94,'CATAMAYO3','093-110','27/09/2022',93,'FARMACIAS CUXIBAMBA CATAMAYO III'),
+createData(102,1.95,'HOSPITAL CATACOCHA','096-100','29/09/2022',96,'FARMACIAS CUXIBAMBA CATACOCHA - HOSPITAL'),
+createData(103,1.96,'PINLLO AMBATO ','095-110','15/10/2022',95,'FARMACIAS CUXIBAMBA PINLLO AMBATO'),
+createData(104,1.99,'BAÑOS IGLESIA','099-100','17/01/2023',99,'FARMACIAS CUXIBAMBA BAÑOS DE AMBATO IGLESIA'),
+createData(105,2.03,'ESPAÑA  LOJA','103-100','31/01/2023',103,'FARMACIAS CUXIBAMBA ESPAÑA Y PIO JARAMILLO - LOJA'),
+createData(106,2.05,'ATAHUALPA  AMBATO','104-100','02/02/2023',104,'FARMACIAS CUXIBAMBA ATAHUALPA - AMBATO'),
+createData(107,2.06,'JOSE ANTONIO - LOJA','033-110','12/10/2022',33,'FARMACIAS CUXIBAMBA SUCRE Y JOSE ANTONIO'),
+createData(109,1.97,'PRIMERA CONSTITUYENTE RIOBAMBA ','097-100','09/12/2022',97,'FARMACIAS CUXIBAMBA PRIMERA CONSTITUYENTE - RIOBAMBA'),
+createData(110,1.98,'ABDON CALDERON AMBATO','098-100','08/12/2022',98,'FARMACIAS CUXIBAMBA ABDON CALDERON - AMBATO'),
+createData(111,2.04,'ESTOCOLMO Y LEOPOLDO FREIRE RIOBAMBA ','105-100','02/02/2023',105,'FARMACIAS CUXIBAMBA ESTOCOLMO - RIOBAMBA'),
+createData(112,2.01,'CLOTARIO  CARIAMANGA','101-100','24/01/2023',101,'FARMACIAS CUXIBAMBA CLOTARIO PAZ Y BOLIVAR (CARIAMANGA)'),
+createData(113,2.02,'IZAMBA - AMBATO','102-100','17/02/2023',102,'FARMACIAS CUXIBAMBA IZAMBA AMBATO'),
+createData(114,2.00,'BERNARDO  CARIAMANGA ','100-100','14/01/2023',100,'FARMACIAS CUXIBAMBA C. SUCRE Y BERNARDO (CARIAMANGA)'),
+createData(117,2.07,'5 ESQUINAS  ALAMOR','106-100','14/02/2023',106,'FARMACIAS CUXIBAMBA 5 ESQUINAS - ALAMOR'),
+createData(118,2.08,'RIO AMAZONAS  QUITO','109-100','13/03/2023',109,'FARMACIAS CUXIBAMBA RIO AMAZONAS - QUITO'),
+createData(119,2.09,'AMABLE MARIA  LOJA','108-100','27/02/2023',108,'FARMACIAS CUXIBAMBA AMABLE MARIA - LOJA'),
+createData(120,2.10,'OCCIDENTAL  LOJA','110-100','09/03/2023',110,'FARMACIAS CUXIBAMBA OCCIDENTAL - LOJA'),
+createData(121,2.11,'EUGENIO ESPEJO RIOBAMBA','107-100','27/02/2023',107,'FARMACIAS CUXIBAMBA EUGENIO E. - RIOBAMBA'),
+createData(122,2.12,'TEBAIDA LOJA','111-100','08/03/2023',111,'FARMACIAS CUXIBAMBA TEBAIDA - LOJA'),
+createData(123,2.13,'OSCAR REYES  BANOS','112-100','17/03/2023',112,'FARMACIAS CUXIBAMBA OSCAR REYES - BAÑOS'),
+createData(124,2.15,'GASOLINERA  VILCABAMBA','118-100','06/04/2023',118,'FARMACIAS CUXIBAMBA GASOLINERA - VILCABAMBA'),
+createData(125,2.14,'25 DE JUNIO  CATACOCHA','113-100','19/03/2023',113,'FARMACIAS CUXIBAMBA 25 DE JUNIO - CATACOCHA'),
+createData(126,2.16,'AV. OCTAVA  MACHALA','114-100','10/04/2023',114,'FARMACIAS CUXIBAMBA AV. OCTAVA - MACHALA'),
+createData(127,2.17,'B NORTE MACHALA','115-100','10/04/2023',115,'FARMACIAS CUXIBAMBA OLMEDO - MACHALA'),
+createData(128,2.18,'GUAYAS  MACHALA','116-100','25/04/2023',116,'FARMACIAS CUXIBAMBA GUAYAS - MACHALA'),
+createData(129,2.19,'LAS PALMERAS  MACHALA ','117-100','10/04/2023',117,'FARMACIAS CUXIBAMBA LAS PALMERAS - MACHALA'),
+createData(130,2.20,'JUAN MONTALVO MACHALA','119-100','25/04/2023',119,'FARMACIAS CUXIBAMBA JUAN MONTALVO - MACHALA'),
+createData(131,2.21,'AV. EDELBERTO RIOBAMBA ','126-100','25/04/2023',126,'FARMACIAS CUXIBAMBA AV. EDELBERTO - RIOBAMBA'),
+createData(132,2.22,'CIRCUNVALACION SUR MACHALA ','127-100','08/05/2023',127,'FARMACIAS CUXIBAMBA CIRCUNVALACION SUR - MACHALA'),
+createData(133,2.23,'EVANGELINA  LATACUNGA','120-100','10/05/2023',120,'FARMACIAS CUXIBAMBA EVANGELINA'),
+
+];
+
+export const Home1 = () => {
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
+  return (
+    <>
+      <div className="head">
+        <h2 className="tittle">Lista de sucursales cuxibamba</h2>
+      </div>
+      <div className="tabla-general">
+        <Paper sx={{ width: "100%", overflow: "hidden" }}>
+          <TableContainer
+            sx={{
+              maxHeight: 550,
+              "&::-webkit-scrollbar": {
+                width: 5,
+              },
+              "&::-webkit-scrollbar-track": {
+                backgroundColor: "#ffde5fff",
+              },
+              "&::-webkit-scrollbar-thumb": {
+                backgroundColor: "#1b4084",
+                borderRadius: 1,
+              },
+            }}
+          >
+            <Table stickyHeader aria-label="sticky table">
+              <TableHead>
+                <TableRow>
+                  {columns.map((column) => (
+                    <TableCell
+                      key={column.id}
+                      align={column.align}
+                      style={{ minWidth: column.minWidth }}
+                    >
+                      {column.label}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {rows
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row) => {
+                    return (
+                      <TableRow
+                        hover
+                        role="checkbox"
+                        tabIndex={-1}
+                        key={row.code}
+                      >
+                        {columns.map((column) => {
+                          const value = row[column.id];
+                          return (
+                            <TableCell key={column.id} align={column.align}>
+                              {column.format && typeof value === "number"
+                                ? column.format(value)
+                                : value}
+                            </TableCell>
+                          );
+                        })}
+                      </TableRow>
+                    );
+                  })}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <TablePagination
+            rowsPerPageOptions={[10, 25, 100]}
+            component="div"
+            count={rows.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </Paper>
+      </div>
+    </>
+  );
+};

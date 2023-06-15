@@ -1,0 +1,45 @@
+.table {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  font-family: sans-serif;
+}
+
+.bg-info {
+  color: #fff;
+  background-color: #1b4084;
+}
+
+tr {
+  background: white;
+}
+
+.btn-actualizar {
+  margin-left: 1em;
+}
+
+td {
+  margin-bottom: 5px;
+  font-family: sans-serif;
+  color: #1b4084;
+  margin-left: 5px;
+  padding: 0.8em;
+  border: #1b4084 1px solid;
+}
+
+th {
+  font-family: sans-serif;
+  padding: 0.8em;
+  
+  border-bottom: #1b4084 1px solid;
+  border-top-left-radius: 15px 15px;
+  border-top-right-radius: 15px 15px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tbody{
+  border-radius: 30px;
+}
